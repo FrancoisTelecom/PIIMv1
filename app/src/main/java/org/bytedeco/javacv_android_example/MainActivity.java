@@ -104,14 +104,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void change(){
+    /*public void change(){
         String ts= this.getCacheDir() + "/" + "coca_1";
         File tfile= new File(ts);
         String filePath = tfile.getPath();
         Bitmap bitmap = BitmapFactory.decodeFile(filePath);
         imageViewMain.setImageBitmap(bitmap);
-    }
-
+    }*/
+    /*lance le navigateur de recherche des images*/
     private void startPhotoLibraryActivity() {
         Intent photoLibIntent = new Intent();
         photoLibIntent.setType("image/*");
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "L'application photo n'est pas disponible", Toast.LENGTH_LONG).show();
         }
     }
-
+    /*lance l'appareil photo*/
     private void startCaptureActivity(){
         String photoTest = null;
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         startActivityForResult(analysisIntent, REQUEST_ANALYSIS);
     }
-
+    /*recup de l'uri d'une image */
     private void getLibraryPicture(Intent data) {
         // l'adresse de l'image dans la carte SD
         Uri imageUri = data.getData();
@@ -167,13 +167,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "Unable to open image", Toast.LENGTH_LONG).show();
         }
     }
-
+    /*Methode de creation d'image*/
     private File createImageFile() throws IOException {
         image = new File(this.getCacheDir() + "/"+"pushpicture");
         logg("wallImage" + image);
         return image;
     }
-
+    /*méthode de mis en cache des images*/
     private void creatBitmapByRessources(String nameFile,int drawableId,Bitmap btm) throws IOException {
         FileOutputStream output;
         Bitmap nfiles;
@@ -202,11 +202,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             e.printStackTrace();
         }
     }
-
+    /*methode plus rapide pour print les log*/
     private void logg (String txt){
         Log.i(TAG,"@@"+txt);
     }
 
+    /*charge toutes les images en caches*/
     private void init(){
         try {
             creatBitmapByRessources("coca_1",R.drawable.coca_1,null);
@@ -254,6 +255,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /*methode de rezized les images si trop grandes timeout de la méthode de recherche les points*/
     public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
         int width = bm.getWidth();
         int height = bm.getHeight();

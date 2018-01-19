@@ -64,7 +64,7 @@ public class AnalysisActivity extends Activity implements View.OnClickListener {
     ProgressBar bar;
     int resources_ID[] = new int[]{R.drawable.not, R.drawable.coca_1, R.drawable.pepsi_4, R.drawable.sprite_10};
 
-
+    /*accesseur*/
     public int getloopProgressBar() {
         return loopProgressBar;
     }
@@ -95,6 +95,7 @@ public class AnalysisActivity extends Activity implements View.OnClickListener {
         bar.setVisibility(View.VISIBLE);
         
         imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.load));
+        /*exec de la tache async*/
         new ThreadAnalysis().execute("");
     }
 
@@ -118,7 +119,6 @@ public class AnalysisActivity extends Activity implements View.OnClickListener {
     }
 
     public void setPicture() {
-        //int resources_ID[] = new int[]{R.drawable.not, R.drawable.coca_1, R.drawable.pepsi_4, R.drawable.sprite_10};
 
         Mat imageLC = null;
         String sPushPicture = i.getStringExtra(MainActivity.TURI);
@@ -219,7 +219,7 @@ public class AnalysisActivity extends Activity implements View.OnClickListener {
         //setPictureKNN(groupeKNN, resources_ID);
         logg("@@groupe: " + groupeKNN);// Print du rÃ©sultat, le groupe auquel l'image appartient.
     }
-
+    /*methode résultat print la photo correspondant au résultat*/
     public void setPictureKNN(int knn, int[] resources) {
         imageView.setImageDrawable(ContextCompat.getDrawable(this, resources[knn]));
         webButton.setClickable(true);
@@ -277,6 +277,7 @@ public class AnalysisActivity extends Activity implements View.OnClickListener {
         return result;
     }
 
+    /*methode permettant l'ouverture des images en mat*/
     private Mat OpenImRead(String nameFile) {
         Mat test = null;
         String pathFile = this.getCacheDir() + "/" + nameFile;
@@ -297,7 +298,7 @@ public class AnalysisActivity extends Activity implements View.OnClickListener {
     private void logg(String txt) {
         Log.i(TAG, "@@" + txt);
     }
-
+    /*permet de faire les calcul de reconnaissance dans une tache async ne bloque pas l'ihm*/
     private class ThreadAnalysis extends AsyncTask<String, Void, String>{
         private int ressource;
         AnalysisActivity analysisActivity = new AnalysisActivity();
