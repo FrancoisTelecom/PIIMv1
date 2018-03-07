@@ -1,5 +1,4 @@
-package org.bytedeco.javacv_android_example;
-
+package com.example.tsxn4236.piimv1;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -8,25 +7,17 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-
+import java.io.*;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private Button captureButton = null;
@@ -183,7 +174,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else{
             nfiles=btm;
-             filePath = this.getCacheDir() + "/" + nameFile;
+            filePath = this.getCacheDir() + "/" + nameFile;
             analysisIntent.putExtra(TURI,nameFile);
         }
         if( nfiles.getHeight()> 3000 || nfiles.getWidth() > 2000){
@@ -192,7 +183,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         logg("@# " + nameFile + nfiles);
         nfiles.compress(Bitmap.CompressFormat.JPEG,100,bos);
-         filePath = this.getCacheDir() + "/" + nameFile;
+        filePath = this.getCacheDir() + "/" + nameFile;
         byte[] bitmapData = bos.toByteArray();
         try {
             output = new FileOutputStream(filePath);

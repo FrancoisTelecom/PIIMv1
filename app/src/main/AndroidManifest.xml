@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.bytedeco.javacv_android_example">
+          package="com.example.tsxn4236.piimv1">
+
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -12,14 +13,14 @@
     <uses-feature android:name="android.hardware.camera" />
 
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="PIIM"
-        android:theme="@style/AppTheme">
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="PIIM"
+            android:theme="@style/AppTheme">
 
         <activity
-            android:name=".MainActivity"
-            android:label="PIIM">
+                android:name=".MainActivity"
+                android:label="PIIM">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,18 +28,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".AnalysisActivity"
-            android:label="Analysis">
+                  android:label="Analysis">
         </activity>
         <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="org.bytedeco.javacv_android_example"
-            android:exported="false"
-            android:grantUriPermissions="true">
+                android:name="android.support.v4.content.FileProvider"
+                android:authorities="org.bytedeco.javacv_android_example"
+                android:exported="false"
+                android:grantUriPermissions="true">
             <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"/>
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/file_paths"/>
 
         </provider>
     </application>
-
 </manifest>

@@ -1,25 +1,20 @@
-package org.bytedeco.javacv_android_example;
+package com.example.tsxn4236.piimv1;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewOutlineProvider;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import org.bytedeco.javacpp.Loader;
 import org.bytedeco.javacpp.opencv_calib3d;
 import org.bytedeco.javacpp.opencv_core.DMatch;
@@ -31,13 +26,9 @@ import org.bytedeco.javacpp.opencv_shape;
 import org.bytedeco.javacpp.opencv_xfeatures2d.SIFT;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.lang.ref.WeakReference;
 import java.util.Arrays;
 
 import static org.bytedeco.javacpp.opencv_core.NORM_L2;
-import static org.bytedeco.javacpp.opencv_core.log;
 import static org.bytedeco.javacpp.opencv_imgcodecs.imread;
 
 /**
@@ -299,7 +290,7 @@ public class AnalysisActivity extends Activity implements View.OnClickListener {
         Log.i(TAG, "@@" + txt);
     }
     /*permet de faire les calcul de reconnaissance dans une tache async ne bloque pas l'ihm*/
-    private class ThreadAnalysis extends AsyncTask<String, Void, String>{
+    private class ThreadAnalysis extends AsyncTask<String, Void, String> {
         private int ressource;
         AnalysisActivity analysisActivity = new AnalysisActivity();
 
